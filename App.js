@@ -23,6 +23,8 @@ import Pierna from "./Screens/Index/EjerciciosScreens/Pierna"
 import Plancha from "./Screens/Index/EjerciciosScreens/Plancha"
 import Sentadilla from "./Screens/Index/EjerciciosScreens/Sentadilla"
 
+//Aux
+import CuerdaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/CuerdaAux';
 
 
 
@@ -116,6 +118,12 @@ const EjerciciosScreens = () => {
         name="sentadilla"
         component={Sentadilla}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Sentadilla", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+
+
+      <Stack.Screen
+        name="CuerdaAux"
+        component={CuerdaAux}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Cuerda", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
     </Stack.Navigator>
   )
 }
