@@ -15,7 +15,7 @@ import ExitIco from "./../../image/ico/cerrar-sesion.png"
 
 //imagenes home de ejercicios
 import cuerda from "./../../image/Exercise/cuerda.jpg"
-import domindas from "./../../image/Exercise/dominadas.jpg"
+import pierna from "./../../image/Exercise/piernaArriba.jpg"
 
 
 
@@ -27,13 +27,13 @@ const Home = ({ navigation }) => {
                     <Text style={styles.titulo}>Home</Text>
                     <Text style={styles.subtitulo}>EJERCICIOS RECOMENDADOS</Text>
                     <View style={styles.home}>
-                        <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Brazo')}>
+                        <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Cuerda')}>
                             <Text style={styles.categoria}>BRAZO</Text>
                             <Image source={cuerda} style={styles.imagenes} />
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Pierna')}>
                             <Text style={styles.categoria}>PIERNA</Text>
-                            <Image source={domindas} style={styles.imagenes} />
+                            <Image source={pierna} style={styles.imagenes} />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -47,15 +47,15 @@ const Home = ({ navigation }) => {
                     <Image source={ExerciseIco} style={styles.iconos} />
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('Register')}>
+                    onPress={() => navigation.navigate('Informacion')}>
                     <Image source={InfoIco} style={styles.iconos} />
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('Register')}>
+                    onPress={() => navigation.navigate('Historial')}>
                     <Image source={HistoryIco} style={styles.iconos} />
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('Register')}>
+                    onPress={() => navigation.navigate('Login')}>
                     <Image source={ExitIco} style={styles.iconos} />
                 </TouchableOpacity>
             </View>

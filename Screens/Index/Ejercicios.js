@@ -5,6 +5,12 @@ import React from 'react'
 //imagenes home de ejercicios
 import cuerda from "./../../image/Exercise/cuerda.jpg"
 import domindas from "./../../image/Exercise/dominadas.jpg"
+import flexion from "./../../image/Exercise/flexion.jpg"
+import fullroll from "./../../image/Exercise/fullroll.jpg"
+import jumping from "./../../image/Exercise/jumping.jpg"
+import pierna from "./../../image/Exercise/piernaArriba.jpg"
+import plancha from "./../../image/Exercise/plancha.jpg"
+import sentadilla from "./../../image/Exercise/sentadilla.jpg"
 
 
 
@@ -14,13 +20,37 @@ const Ejercicios = ({ navigation }) => {
             <View style={styles.contenido}>
                 <Text></Text>
                 <View style={styles.home}>
-                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Brazo')}>
-                        <Text style={styles.categoria}>BRAZO</Text>
+                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Cuerda')}>
+                        <Text style={styles.categoria}>CUERDA</Text>
                         <Image source={cuerda} style={styles.imagenes} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Pierna')}>
-                        <Text style={styles.categoria}>PIERNA</Text>
+                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('dominadas')}>
+                        <Text style={styles.categoria}>DOMINADAS</Text>
                         <Image source={domindas} style={styles.imagenes} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('flexion')}>
+                        <Text style={styles.categoria}>FLEXION</Text>
+                        <Image source={flexion} style={styles.imagenes} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('fullroll')}>
+                        <Text style={styles.categoria}>FULLROLL</Text>
+                        <Image source={fullroll} style={styles.imagenes} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('jumping')}>
+                        <Text style={styles.categoria}>JUMPING</Text>
+                        <Image source={jumping} style={styles.imagenes} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('pierna')}>
+                        <Text style={styles.categoria}>PIERNA</Text>
+                        <Image source={pierna} style={styles.imagenes} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('plancha')}>
+                        <Text style={styles.categoria}>PLANCHA</Text>
+                        <Image source={plancha} style={styles.imagenes} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('sentadilla')}>
+                        <Text style={styles.categoria}>SENTADILLAS</Text>
+                        <Image source={sentadilla} style={styles.imagenes} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -40,33 +70,6 @@ const styles = StyleSheet.create({
     contenido: {
         margin: 20,
 
-    },
-    titulo: {
-        textAlign: 'center',
-        fontSize: 55,
-        color: "#fff",
-    },
-    subtitulo: {
-        textAlign: 'center',
-        fontSize: 28,
-        color: "#fff",
-        fontWeight: 'bold',
-        marginTop: 10,
-    },
-    navbar: {
-        backgroundColor: "#615858",
-        alignSelf: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'flex-end',
-        marginTop: 10,
-    },
-    iconos: {
-        resizeMode: 'stretch',
-        width: 50,
-        height: 50,
-        marginVertical: 10,
-        marginHorizontal: 14,
     },
     categoria: {
         textAlign: "center",
