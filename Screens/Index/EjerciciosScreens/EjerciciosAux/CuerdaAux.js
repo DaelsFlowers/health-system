@@ -1,19 +1,22 @@
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
 import React from 'react'
-import ControlledGifView from 'react-native-controlled-gif';
-import gif from "../../../../gif/cuerda.gif"
+import { Video } from 'expo-av'
+import * as FileSystem from 'expo-file-system';
 
 
 const CuerdaAux = ({ navigation }) => {
     return (
         <ScrollView style={styles.content}>
             <View style={styles.contenido}>
-                <ControlledGifView
-                    style={{ width: 200, height: 166, backgroundColor: "yellow" }}
-                    url="http://katemobile.ru/tmp/sample3.gif"
-                    isPlaying={true}
-                    onReady={(width, height) => this.onReady(width, height)}
-                    onError={(code, message) => this.onError(code, message)} />
+                <Video source={{ localUri: FileSystem. }}
+                    rate={1.0}
+                    volume={0}
+                    isMuted={true}
+                    resizeMode="cover"
+                    isLooping
+                    shouldPlay
+                    style={{ width: 300, height: 300 }}
+                />
             </View>
         </ScrollView>
 
