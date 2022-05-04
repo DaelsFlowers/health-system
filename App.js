@@ -33,8 +33,9 @@ import PiernaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/PiernaAux
 import PlanchaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/PlanchaAux';
 import SentadillaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/SentadillaAux';
 
+//INFORMACION SCREENS
 
-
+import Tabaco from './Screens/Index/Information/Tabaco';
 
 const Auth = () => {
   return (
@@ -76,13 +77,17 @@ const Index = () => {
         component={Pierna}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Pierna", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
+        name="PiernaAux"
+        component={PiernaAux}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Pierna", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
         name="Ejercicios"
         component={EjerciciosScreens}
         options={{ headerShown: false }} />
       <Stack.Screen
         name="Informacion"
-        component={Informacion}
-        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+        component={InformacionScreens}
+        options={{ headerShown: false }} />
       <Stack.Screen
         name="Historial"
         component={Historial}
@@ -137,31 +142,31 @@ const EjerciciosScreens = () => {
         component={CuerdaAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Cuerda", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
-        name="dominadasAux"
+        name="DominadasAux"
         component={DominadasAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Dominadas", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
-        name="flexionAux"
+        name="FlexionAux"
         component={FlexionAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Flexion", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
-        name="fullrollAux"
+        name="FullrollAux"
         component={FullrollAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Fullroll", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
-        name="jumpingAux"
+        name="JumpingAux"
         component={JumpingAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Jumping", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
-        name="piernaAux"
+        name="PiernaAux"
         component={PiernaAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Pierna", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
-        name="planchaAux"
+        name="PlanchaAux"
         component={PlanchaAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Plancha", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
-        name="sentadillaAux"
+        name="SentadillaAux"
         component={SentadillaAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Sentadilla", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
 
@@ -169,6 +174,20 @@ const EjerciciosScreens = () => {
   )
 }
 
+
+const InformacionScreens = () => {
+  return (
+    <Stack.Navigator initialRouteName='InformacionIndex'>
+      <Stack.Screen name="InformacionIndex"
+        component={Informacion}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Tabaco"
+        component={Tabaco}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+    </Stack.Navigator>
+  )
+}
 const Stack = createNativeStackNavigator();
 
 function App() {

@@ -11,16 +11,16 @@ const Informacion = ({ navigation }) => {
         <ScrollView style={styles.content}>
             <View style={styles.contenido}>
 
-                <TouchableOpacity style={styles.tarjetasEspecial} >
+                <TouchableOpacity style={styles.tarjetasEspecial} onPress={() => navigation.navigate('Login')} >
                     <Text style={styles.textEspecial}>
                         CICLISMO
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Tabaco')}>
                     <Text style={styles.text}>
-                        Cardiopatias Familiares y Geneticas
+                        Tabaco Y Sus Consecuencias
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
