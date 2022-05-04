@@ -25,6 +25,14 @@ import Sentadilla from "./Screens/Index/EjerciciosScreens/Sentadilla"
 
 //Aux
 import CuerdaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/CuerdaAux';
+import DominadasAux from "./Screens/Index/EjerciciosScreens/EjerciciosAux/DominadasAux"
+import FlexionAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/FlexionAux';
+import FullrollAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/FullrollAux';
+import JumpingAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/JumpingAux';
+import PiernaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/PiernaAux';
+import PlanchaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/PlanchaAux';
+import SentadillaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/SentadillaAux';
+
 
 
 
@@ -58,6 +66,10 @@ const Index = () => {
       <Stack.Screen
         name="Cuerda"
         component={Cuerda}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Cuerda", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="CuerdaAux"
+        component={CuerdaAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Cuerda", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
         name="Pierna"
@@ -124,6 +136,35 @@ const EjerciciosScreens = () => {
         name="CuerdaAux"
         component={CuerdaAux}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Cuerda", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="dominadasAux"
+        component={DominadasAux}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Dominadas", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="flexionAux"
+        component={FlexionAux}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Flexion", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="fullrollAux"
+        component={FullrollAux}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Fullroll", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="jumpingAux"
+        component={JumpingAux}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Jumping", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="piernaAux"
+        component={PiernaAux}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Pierna", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="planchaAux"
+        component={PlanchaAux}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Plancha", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="sentadillaAux"
+        component={SentadillaAux}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "Sentadilla", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+
     </Stack.Navigator>
   )
 }

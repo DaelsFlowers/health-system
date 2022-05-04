@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Button, ScrollView, Text, TouchableOpacity } from "react-native";
 import { Video, AVPlaybackStatus } from "expo-av";
 
-export default function CuerdaAux() {
+export default function PlanchaAux() {
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [customInterval, setCustomInterval] = useState();
@@ -55,7 +55,7 @@ export default function CuerdaAux() {
                     ref={video}
                     style={styles.video}
                     source={{
-                        uri: "https://res.cloudinary.com/dqztp4urd/video/upload/v1651689049/cuerda_hfaet7.mp4"
+                        uri: "https://res.cloudinary.com/dqztp4urd/video/upload/v1651700095/plancha_hhbfkj.mp4"
                     }}
                     resizeMode="contain"
                     isLooping
