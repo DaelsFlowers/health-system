@@ -1,6 +1,8 @@
 import StickyHeaderFooterScrollView from 'react-native-sticky-header-footer-scroll-view';
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { BackHandler } from 'react-native';
+import AwesomeAlert from 'react-native-awesome-alerts';
+import { useNetInfo } from '@react-native-community/netinfo'
 
 
 //iconos
@@ -16,51 +18,104 @@ import ExitIco from "./../../image/ico/cerrar-sesion.png"
 //imagenes home de ejercicios
 import cuerda from "./../../image/Exercise/cuerda.jpg"
 import pierna from "./../../image/Exercise/piernaArriba.jpg"
-
-
+import { render } from 'react-dom';
 
 const Home = ({ navigation }) => {
-    return (
-        <View style={{ flex: 1, backgroundColor: "#615858" }}>
-            <ScrollView style={styles.content}>
-                <View style={styles.contenido}>
-                    <Text style={styles.titulo}>Home</Text>
-                    <Text style={styles.subtitulo}>EJERCICIOS RECOMENDADOS</Text>
-                    <View style={styles.home}>
-                        <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Cuerda')}>
-                            <Text style={styles.categoria}>BRAZO</Text>
-                            <Image source={cuerda} style={styles.imagenes} />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Pierna')}>
-                            <Text style={styles.categoria}>PIERNA</Text>
-                            <Image source={pierna} style={styles.imagenes} />
-                        </TouchableOpacity>
+    const netInfo = useNetInfo()
+    if (netInfo.isConnected) {
+        return (
+            <View style={{ flex: 1, backgroundColor: "#615858" }}>
+                <ScrollView style={styles.content}>
+                    <View style={styles.contenido}>
+                        <Text style={styles.titulo}>Home</Text>
+                        <Text style={styles.subtitulo}>EJERCICIOS RECOMENDADOS</Text>
+                        <View style={styles.home}>
+                            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Cuerda')}>
+                                <Text style={styles.categoria}>BRAZO</Text>
+                                <Image source={cuerda} style={styles.imagenes} />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Pierna')}>
+                                <Text style={styles.categoria}>PIERNA</Text>
+                                <Image source={pierna} style={styles.imagenes} />
+                            </TouchableOpacity>
+                        </View>
                     </View>
+                </ScrollView>
+                <View style={styles.navbar}>
+                    <TouchableOpacity>
+                        <Image source={HomeIco} style={styles.iconos} />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ejercicios')}>
+                        <Image source={ExerciseIco} style={styles.iconos} />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Informacion')}>
+                        <Image source={InfoIco} style={styles.iconos} />
+                    </TouchableOpacity>
+                    {/* <TouchableOpacity
+                        onPress={() => navigation.navigate('Historial')}>
+                        <Image source={HistoryIco} style={styles.iconos} />
+                    </TouchableOpacity> */}
+                    <TouchableOpacity
+                        onPress={BackHandler.exitApp}>
+                        <Image source={ExitIco} style={styles.iconos} />
+                    </TouchableOpacity>
                 </View>
-            </ScrollView>
-            <View style={styles.navbar}>
-                <TouchableOpacity>
-                    <Image source={HomeIco} style={styles.iconos} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Ejercicios')}>
-                    <Image source={ExerciseIco} style={styles.iconos} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Informacion')}>
-                    <Image source={InfoIco} style={styles.iconos} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Historial')}>
-                    <Image source={HistoryIco} style={styles.iconos} />
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => navigation.navigate('Login')}>
-                    <Image source={ExitIco} style={styles.iconos} />
-                </TouchableOpacity>
             </View>
-        </View>
-    )
+        )
+    } else {
+        return (
+            <View style={{ flex: 1, backgroundColor: "#615858" }}>
+                <AwesomeAlert
+                    show={true}
+                    title="Error Internet"
+                    message="No se encuentra conexion a internet, los videos no cargaran"
+                    closeOnTouchOutside={true}
+                    closeOnHardwareBackPress={true}
+                />
+
+                <ScrollView style={styles.content}>
+                    <View style={styles.contenido}>
+                        <Text style={styles.titulo}>Home</Text>
+                        <Text style={styles.subtitulo}>EJERCICIOS RECOMENDADOS</Text>
+                        <View style={styles.home}>
+                            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Cuerda')}>
+                                <Text style={styles.categoria}>BRAZO</Text>
+                                <Image source={cuerda} style={styles.imagenes} />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.touch} onPress={() => navigation.navigate('Pierna')}>
+                                <Text style={styles.categoria}>PIERNA</Text>
+                                <Image source={pierna} style={styles.imagenes} />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </ScrollView>
+                <View style={styles.navbar}>
+                    <TouchableOpacity>
+                        <Image source={HomeIco} style={styles.iconos} />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Ejercicios')}>
+                        <Image source={ExerciseIco} style={styles.iconos} />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('Informacion')}>
+                        <Image source={InfoIco} style={styles.iconos} />
+                    </TouchableOpacity>
+                    {/* <TouchableOpacity
+                        onPress={() => navigation.navigate('Historial')}>
+                        <Image source={HistoryIco} style={styles.iconos} />
+                    </TouchableOpacity> */}
+                    <TouchableOpacity
+                        onPress={BackHandler.exitApp}>
+                        <Image source={ExitIco} style={styles.iconos} />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        )
+    }
+
 }
 
 export default Home

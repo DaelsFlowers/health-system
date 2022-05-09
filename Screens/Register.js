@@ -1,8 +1,69 @@
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "./../image/logo.png"
 
+import { db } from '../data/firebase'
+import { doc, getDocs, setDoc, snapshotEqual, collection } from 'firebase/firestore'
+
+
 const Register = ({ navigation }) => {
+
+
+    const [userDoc, setUserDoc] = useState(null)
+    var existe = 0
+
+    const Create = (name, mail, pass) => {
+        const myDoc = doc(db, "Users", mail)
+
+        const docData = {
+            "name": name,
+            "mail": mail,
+            "pass": pass,
+            "passc": pass
+        }
+        setDoc(myDoc, docData).then(() => {
+        }).catch((error) => {
+            alert(error.messange)
+        })
+    }
+
+    const [state, setState] = useState({
+        name: "",
+        mail: "",
+        pass: "",
+        passc: "",
+    });
+
+
+    const handleCahngeText = (name, value) => {
+        setState({ ...state, [name]: value })
+    }
+
+    const saveNewUser = () => {
+
+
+        if (state.name === "" || state.mail === "" || state.pass === "") {
+            alert("Favor de Llenar Los Campos")
+        } else {
+            if (state.pass !== state.passc) {
+                alert("Las Contraseñas No Coiciden")
+            } else {
+                const myDocs = doc(db, "Users", state.mail)
+                getDocs(myDocs).then((snapshot) => {
+
+                    if (snapshot.exists) {
+                        alert("Usuario Ya Registrdo")
+                    } else {
+                        Create(state.name, state.mail, state.pass)
+                        alert("Creado Con Exito")
+                        navigation.navigate('Index')
+                    }
+                }).catch((error) => {
+                    alert(error.messange)
+                })
+            }
+        }
+    }
     return (
         <ScrollView style={styles.container}>
             <View style={styles.content}>
@@ -14,22 +75,27 @@ const Register = ({ navigation }) => {
                 <View style={styles.formLogin}>
                     <TextInput
                         placeholder='NOMBRE'
-                        style={styles.inputStyle} />
+                        style={styles.inputStyle}
+                        onChangeText={(value) => handleCahngeText("name", value)} />
                     <TextInput
                         placeholder='CORREO'
-                        style={styles.inputStyle} />
+                        style={styles.inputStyle}
+                        onChangeText={(value) => handleCahngeText("mail", value)} />
                     <TextInput
                         placeholder='CONTRASEÑA'
-                        style={styles.inputStyle} />
+                        style={styles.inputStyle}
+                        onChangeText={(value) => handleCahngeText("pass", value)} />
                     <TextInput
                         placeholder='CONTRASEÑA'
-                        style={styles.inputStyle} />
-                    <TouchableOpacity style={styles.button} >
+                        style={styles.inputStyle}
+                        onChangeText={(value) => handleCahngeText("passc", value)} />
+                    <TouchableOpacity style={styles.button} onPress={saveNewUser} >
                         <Text style={styles.buttonTextStyle} >ENTRAR</Text>
                     </TouchableOpacity>
                 </View>
                 <Text
                     style={styles.registerTextStyle}
+                    //onPress={Create}>
                     onPress={() => navigation.navigate('Login')}>
                     Ya Tienes Una Cuenta? Log In
                 </Text>

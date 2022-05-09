@@ -61,15 +61,13 @@ export default function JumpingAux() {
                     isLooping
                     onPlaybackStatusUpdate={(status) => setStatus(() => status)}
                 />
-                <TouchableOpacity onPress={status ? startTime : stopTimer}>
-                    <View style={styles.buttons}>
-                        <Button
-                            color={"#4F4646"}
-                            title={status.isPlaying ? "Pause" : "Play"}
-                            onPress={(() => status.isPlaying ? video.current.pauseAsync() : video.current.playAsync())}
-                        ></Button>
-                    </View>
-                </TouchableOpacity>
+                <View style={styles.buttons}>
+                    <Button
+                        color={"#4F4646"}
+                        title={status.isPlaying ? "Pause" : "Play"}
+                        onPress={(() => status.isPlaying ? video.current.pauseAsync() && stopTimer() : video.current.playAsync() && startTime())}
+                    ></Button>
+                </View>
             </View>
         </ScrollView>
 

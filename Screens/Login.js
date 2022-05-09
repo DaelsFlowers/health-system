@@ -1,8 +1,14 @@
-import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity, AsyncStorage, Alert } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import logo from "./../image/logo.png"
+import * as SQLite from "expo-sqlite";
+
 
 const Login = ({ navigation }) => {
+
+    const [mail, setMail] = useState("");
+    const [pass, setPass] = useState("");
+
     return (
         <ScrollView style={styles.container}>
             <View style={styles.content}>

@@ -6,11 +6,13 @@ import Login from './Screens/Login';
 import Register from './Screens/Register';
 
 
+import SplashScreen from './Screens/SplashScreen';
+
 //screens
 import Home from './Screens/Index/Home';
 import Ejercicios from './Screens/Index/Ejercicios';
 import Informacion from './Screens/Index/Informacion';
-import Historial from './Screens/Index/Historial';
+//import Historial from './Screens/Index/Historial';
 
 
 //ejercicios
@@ -36,6 +38,8 @@ import SentadillaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/Senta
 //INFORMACION SCREENS
 
 import Tabaco from './Screens/Index/Information/Tabaco';
+
+
 
 const Auth = () => {
   return (
@@ -88,10 +92,10 @@ const Index = () => {
         name="Informacion"
         component={InformacionScreens}
         options={{ headerShown: false }} />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Historial"
         component={Historial}
-        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "HISTORIAL", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "HISTORIAL", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} /> */}
     </Stack.Navigator>
   )
 }
@@ -194,10 +198,14 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Auth">
-        <Stack.Screen
+        {/* <Stack.Screen
+          name="Splash"
+          component={SplashScreen}
+          options={{ headerShown: false }} /> */}
+        {/* <Stack.Screen
           name="Auth"
           component={Auth}
-          options={{ headerShown: false }} />
+          options={{ headerShown: false }} /> */}
         <Stack.Screen
           name="Index"
           component={Index}
