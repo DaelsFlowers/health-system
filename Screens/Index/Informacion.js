@@ -20,35 +20,35 @@ const Informacion = ({ navigation }) => {
 
                 <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Tabaco')}>
                     <Text style={styles.text}>
-                        Tabaco Y Sus Consecuencias
+                        TABACO Y SUS CONSECUENCIAS
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Presion')}>
                     <Text style={styles.text}>
-                        Tromboembolismo Pulmonar
+                        PRESION ARTERIAL
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Sobrepeso')} >
                     <Text style={styles.text}>
-                        Sindrome de Tako-Tsubo
+                        SOBREPESO
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Estiramientos')} >
                     <Text style={styles.text}>
-                        Infarto de Miocardio
+                        ESTIRAMIENTOS Y PORQUE HACERLOS
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Cardiacos')} >
                     <Text style={styles.text}>
-                        Cardiopatia Isquemica
+                        PROBLEMAS CARDIACOS
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>

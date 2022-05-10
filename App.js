@@ -37,7 +37,17 @@ import SentadillaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/Senta
 
 //INFORMACION SCREENS
 
+import Cardiacos from './Screens/Index/Information/Cardiacos';
+import Consejos from './Screens/Index/Information/Consejos';
+import Diabetes from './Screens/Index/Information/Diabetes';
+import Dieta from './Screens/Index/Information/Dieta';
+import Estiramientos from './Screens/Index/Information/Estiramientos';
+import Porque from './Screens/Index/Information/Porque';
+import Presion from './Screens/Index/Information/Presion';
+import Pulmonales from './Screens/Index/Information/Pulmonales';
+import Sobrepeso from './Screens/Index/Information/Sobrepeso';
 import Tabaco from './Screens/Index/Information/Tabaco';
+
 
 
 
@@ -184,6 +194,42 @@ const InformacionScreens = () => {
     <Stack.Navigator initialRouteName='InformacionIndex'>
       <Stack.Screen name="InformacionIndex"
         component={Informacion}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Cardiacos"
+        component={Cardiacos}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Consejos"
+        component={Consejos}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Diabetes"
+        component={Diabetes}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Dieta"
+        component={Dieta}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Estiramientos"
+        component={Estiramientos}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Porque"
+        component={Porque}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Presion"
+        component={Presion}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Pulmonales"
+        component={Pulmonales}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
+        name="Sobrepeso"
+        component={Sobrepeso}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
         name="Tabaco"
