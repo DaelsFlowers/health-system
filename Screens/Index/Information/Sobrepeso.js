@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
 import React from 'react'
-import imagen1 from "./../../../image/Info/2.1.jpg"
-import imagen2 from "./../../../image/Info/2.2.jpg"
+import imagen1 from "./../../../image/Info/3.1.jpg"
+import imagen2 from "./../../../image/Info/3.2.jpg"
 
 
 const Sobrepeso = ({ navigation }) => {
@@ -9,35 +9,41 @@ const Sobrepeso = ({ navigation }) => {
         <ScrollView style={styles.content}>
             <View style={styles.contenido}>
                 <Text style={styles.titulo}>
-                    PRESION ARTERIAL
+                    SOBREPESO
                 </Text>
                 <Text style={styles.context}>
-                    {"\n"}La presión arterial alta hipertensión es una afección frecuente en la que la fuerza que ejerce la sangre contra las paredes de tus arterias con el transcurso del tiempo es lo suficientemente alta como para poder causarte problemas de salud, como una enfermedad cardíaca.{'\n'}
+                    {"\n"}Las investigaciones han demostrado que a medida que aumenta el peso hasta alcanzar los niveles de sobrepeso y obesidad*, también aumentan los riesgos de las siguientes afecciones:
 
-                    La presión arterial está determinada tanto por la cantidad de sangre que el corazón bombea como por el grado de resistencia al flujo de la sangre en las arterias. Cuanta más sangre tu corazón bombee y cuanto más estrechas estén tus arterias, mayor será tu presión arterial. La lectura de la presión arterial se determina en milímetros de mercurio mm Hg.{'\n'}{'\n'}
-                    Tiene dos números:{'\n'}
-                    •	Valor superior presión sistólica. El primero, o superior, mide la presión en las arterias cuando el corazón late.{'\n'}
-                    •	Valor inferior presión diastólica. El segundo, o inferior, mide la presión en las arterias entre los latidos.{'\n'}
+                    {"\n"}{"\n"} •	Enfermedad coronaria{"\n"}
+                    •	Diabetes tipo 2{"\n"}
+                    •	Cáncer (de endometrio, de mama y de colon){"\n"}
+                    •	Hipertensión (presión arterial alta){"\n"}
+                    •	Dislipidemia (por ejemplo, niveles altos de colesterol total o de triglicéridos){"\n"}
+                    •	Accidente cerebrovascular{"\n"}
+                    •	Enfermedad del hígado y de la vesícula{"\n"}
+                    •	Apnea del sueño y problemas respiratorios{"\n"}
+                    •	Artrosis (la degeneración del cartílago y el hueso subyacente de una articulación){"\n"}
+                    •	Problemas ginecológicos (menstruación anómala, infertilidad){"\n"}
+
                 </Text>
                 <Image style={styles.imagenes} source={imagen1} />
                 <Text style={styles.context}>
-                    {"\n"}Síntomas {"\n"}{"\n"}
-                    Algunas personas con presión arterial alta pueden tener dolor de cabeza, dificultad para respirar o sangrado nasal, pero estos signos y síntomas no son específicos y, por lo general, no se presentan hasta que dicho trastorno alcanza una etapa grave o potencialmente fatal.{"\n"}
+                    {"\n"}Tres factores se pueden considerar para determinar si la grasa corporal de una persona la pone en mayor riesgo de presentar enfermedades relacionadas con la obesidad:{"\n"}{"\n"}
+
+                    •	El índice de masa corporal (IMC){"\n"}
+                    •	La medida de la cintura{"\n"}
+                    •	Otros factores de riesgo que la persona tenga (un factor de riesgo es cualquier elemento que incremente sus probabilidades de padecer una enfermedad).{"\n"}
                 </Text>
                 <Image style={styles.imagenes} source={imagen2} />
                 <Text style={styles.context}>
-                    {"\n"}{"\n"}Factores de riesgo{"\n"}{"\n"}
-                    •	Edad{"\n"}
-                    •	Raza{"\n"}
-                    •	Antecedentes Familiares{"\n"}
-                    •	Sobrepeso u obesidad{"\n"}
-                    •	Falta de actividad física{"\n"}
-                    •	Consumo de tabaco{"\n"}
-                    •	Alto contenido de sal sodio en tu dieta{"\n"}
-                    •	Cantidad insuficiente de potasio en tu dieta{"\n"}
-                    •	Consumo excesivo de alcohol{"\n"}
-                    •	Estrés{"\n"}
-                    •	Ciertas enfermedades crónicas{"\n"}
+                    {"\n"}Indice de masa corporal{"\n"}{"\n"}
+                    Los expertos a menudo recurren al IMC para determinar si una persona tiene sobrepeso. El IMC calcula el nivel de grasa corporal usando la estatura y el peso.{"\n"}{"\n"}
+                    Empezando en 25.0, cuanto más alto es su IMC, mayor es su riesgo de presentar problemas de salud relacionados con la obesidad.{"\n"}{"\n"}
+
+                    •	Sobrepeso (no obeso), si el IMC es de 25.0 a 29.9{"\n"}
+                    •	Obesidad clase 1 (de bajo riesgo), si el IMC es de 30 a 34.9{"\n"}
+                    •	Obesidad clase 2 (riesgo moderado), si el IMC es de 35 a 39.9{"\n"}
+                    •	Obesidad clase 3 (de alto riesgo), si el IMC es igual o mayor a 40{"\n"}
                 </Text>
 
             </View>

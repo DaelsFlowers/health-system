@@ -53,37 +53,37 @@ const Informacion = ({ navigation }) => {
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Dieta')} >
                     <Text style={styles.text}>
-                        Fibrilacion Cardiaca
+                        DIETA
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Diabetes')} >
                     <Text style={styles.text}>
-                        Muerte Subita
+                        DIABETES
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Pulmonales')} >
                     <Text style={styles.text}>
-                        Valvulopatia
+                        PROBLEMAS PULMONARES
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Consejos')} >
                     <Text style={styles.text}>
-                        Cardiopatias Congenitas
+                        CONSEJOS DE EJERCICIOS(COMO EMPEZAR A PREPARARTE)
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.tarjetas} >
+                <TouchableOpacity style={styles.tarjetas} onPress={() => navigation.navigate('Porque')} >
                     <Text style={styles.text}>
-                        Enfermedades de Kawasaki
+                        PORQUE HACER EJERCICIOS
                     </Text>
                     <Image source={buttonImg} style={styles.boton}></Image>
                 </TouchableOpacity>

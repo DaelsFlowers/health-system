@@ -1,6 +1,7 @@
 import StickyHeaderFooterScrollView from 'react-native-sticky-header-footer-scroll-view';
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
 import React, { BackHandler } from 'react-native';
+import { useState } from 'react';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { useNetInfo } from '@react-native-community/netinfo'
 
@@ -21,6 +22,16 @@ import pierna from "./../../image/Exercise/piernaArriba.jpg"
 import { render } from 'react-dom';
 
 const Home = ({ navigation }) => {
+    var count = 1
+
+    const Countl = () => {
+        if (count >= 3) {
+            alert("SISTEMA CREADO POR DANIEL FLORES RIVAS\nGITHUB: DaelsFlowers")
+            count = 0
+        }
+        count += 1
+    }
+
     const netInfo = useNetInfo()
     if (netInfo.isConnected) {
         return (
@@ -42,7 +53,7 @@ const Home = ({ navigation }) => {
                     </View>
                 </ScrollView>
                 <View style={styles.navbar}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={Countl}>
                         <Image source={HomeIco} style={styles.iconos} />
                     </TouchableOpacity>
                     <TouchableOpacity

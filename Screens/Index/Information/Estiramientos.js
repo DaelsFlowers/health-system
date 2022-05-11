@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
 import React from 'react'
-import imagen1 from "./../../../image/Info/2.1.jpg"
-import imagen2 from "./../../../image/Info/2.2.jpg"
+import imagen1 from "./../../../image/Info/4.1.jpg"
+import imagen2 from "./../../../image/Info/4.2.jpg"
+import imagen3 from "./../../../image/Info/4.3.jpg"
 
 
 const Estiraminetos = ({ navigation }) => {
@@ -9,36 +10,28 @@ const Estiraminetos = ({ navigation }) => {
         <ScrollView style={styles.content}>
             <View style={styles.contenido}>
                 <Text style={styles.titulo}>
-                    PRESION ARTERIAL
+                    ESTIRAMIENTOS Y PORQUE HACERLOS
                 </Text>
                 <Text style={styles.context}>
-                    {"\n"}La presión arterial alta hipertensión es una afección frecuente en la que la fuerza que ejerce la sangre contra las paredes de tus arterias con el transcurso del tiempo es lo suficientemente alta como para poder causarte problemas de salud, como una enfermedad cardíaca.{'\n'}
-
-                    La presión arterial está determinada tanto por la cantidad de sangre que el corazón bombea como por el grado de resistencia al flujo de la sangre en las arterias. Cuanta más sangre tu corazón bombee y cuanto más estrechas estén tus arterias, mayor será tu presión arterial. La lectura de la presión arterial se determina en milímetros de mercurio mm Hg.{'\n'}{'\n'}
-                    Tiene dos números:{'\n'}
-                    •	Valor superior presión sistólica. El primero, o superior, mide la presión en las arterias cuando el corazón late.{'\n'}
-                    •	Valor inferior presión diastólica. El segundo, o inferior, mide la presión en las arterias entre los latidos.{'\n'}
+                    {"\n"}Siempre deberíamos estirar antes y después de hacer ejercicio, muchas veces no lo hacemos por falta de tiempo o simplemente por el desconocimiento de sus consecuencias.{"\n"}{"\n"}
                 </Text>
                 <Image style={styles.imagenes} source={imagen1} />
                 <Text style={styles.context}>
-                    {"\n"}Síntomas {"\n"}{"\n"}
-                    Algunas personas con presión arterial alta pueden tener dolor de cabeza, dificultad para respirar o sangrado nasal, pero estos signos y síntomas no son específicos y, por lo general, no se presentan hasta que dicho trastorno alcanza una etapa grave o potencialmente fatal.{"\n"}
+                    Los estiramientos mejoran la circulación de la sangre y favorecen que el oxígeno llegue correctamente a los músculos, combate la rigidez en las articulaciones, es recomendable en la recuperación de algunas lesiones e incluso es una buena forma de combatir el estrés, aliviar dolores de espalda o de cabeza y mejorar la calidad del sueño.
                 </Text>
                 <Image style={styles.imagenes} source={imagen2} />
                 <Text style={styles.context}>
-                    {"\n"}{"\n"}Factores de riesgo{"\n"}{"\n"}
-                    •	Edad{"\n"}
-                    •	Raza{"\n"}
-                    •	Antecedentes Familiares{"\n"}
-                    •	Sobrepeso u obesidad{"\n"}
-                    •	Falta de actividad física{"\n"}
-                    •	Consumo de tabaco{"\n"}
-                    •	Alto contenido de sal sodio en tu dieta{"\n"}
-                    •	Cantidad insuficiente de potasio en tu dieta{"\n"}
-                    •	Consumo excesivo de alcohol{"\n"}
-                    •	Estrés{"\n"}
-                    •	Ciertas enfermedades crónicas{"\n"}
+                    Estirar es importante ¿por qué?{"\n"}{"\n"}
+
+                    •	Los estiramientos previos al deporte nos permitirán aprovechar el potencial de nuestro cuerpo, el rendimiento deportivo será mayor si el músculo es flexible, evitando lesiones.{"\n"}{"\n"}
+
+                    •	Durante el tiempo que estamos entrenando se generan tensiones por lo que también es importante llevar a cabo una rutina después del ejercicio para relajar los músculos, esto mejorará la circulación y reducirá el dolor muscular.{"\n"}{"\n"}
+
+                    •	Además, mejoraremos la movilidad de nuestro cuerpo en general, aumentaremos nuestra flexibilidad y agilidad.{"\n"}{"\n"}
+
+                    •	Los estiramientos están considerados como ejercicios de baja intensidad, aunque como ya hemos dicho es importante realizarlos de la manera correcta, ya que realizarlos mal también puede llegar a causarnos una lesión, que es precisamente lo que queremos evitar.{"\n"}{"\n"}
                 </Text>
+                <Image style={styles.imagenes} source={imagen3} />
             </View>
         </ScrollView >
     )
