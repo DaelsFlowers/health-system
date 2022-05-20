@@ -1,18 +1,14 @@
-import * as React from 'react';
-import { Button, View, Text } from 'react-native';
 import { useNavigation, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './Screens/Login';
 import Register from './Screens/Register';
-
-
-import SplashScreen from './Screens/SplashScreen';
+import React from "react"
 
 //screens
 import Home from './Screens/Index/Home';
 import Ejercicios from './Screens/Index/Ejercicios';
 import Informacion from './Screens/Index/Informacion';
-//import Historial from './Screens/Index/Historial';
+import Historial from './Screens/Index/Historial';
 
 
 //ejercicios
@@ -37,6 +33,7 @@ import SentadillaAux from './Screens/Index/EjerciciosScreens/EjerciciosAux/Senta
 
 //INFORMACION SCREENS
 
+import CiclismoScreen from './Screens/Index/Information/Ciclismo';
 import Cardiacos from './Screens/Index/Information/Cardiacos';
 import Consejos from './Screens/Index/Information/Consejos';
 import Diabetes from './Screens/Index/Information/Diabetes';
@@ -52,6 +49,9 @@ import Tabaco from './Screens/Index/Information/Tabaco';
 
 
 const Auth = () => {
+
+
+
   return (
     <Stack.Navigator initialRouteName="Login">
       <Stack.Screen
@@ -102,10 +102,10 @@ const Index = () => {
         name="Informacion"
         component={InformacionScreens}
         options={{ headerShown: false }} />
-      {/* <Stack.Screen
+      <Stack.Screen
         name="Historial"
         component={Historial}
-        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "HISTORIAL", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} /> */}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "HISTORIAL", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
     </Stack.Navigator>
   )
 }
@@ -196,6 +196,10 @@ const InformacionScreens = () => {
         component={Informacion}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
       <Stack.Screen
+        name="Ciclismo"
+        component={CiclismoScreen}
+        options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
+      <Stack.Screen
         name="Cardiacos"
         component={Cardiacos}
         options={{ headerShown: true, headerStyle: { backgroundColor: "#3A3131" }, headerTintColor: "#fff", headerTitleAlign: 'center', headerTitle: "INFORMACION", headerTitleStyle: { fontSize: 36, fontWeight: "100" } }} />
@@ -240,18 +244,18 @@ const InformacionScreens = () => {
 }
 const Stack = createNativeStackNavigator();
 
+
 function App() {
+
+
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Auth">
-        {/* <Stack.Screen
-          name="Splash"
-          component={SplashScreen}
-          options={{ headerShown: false }} /> */}
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Auth"
           component={Auth}
-          options={{ headerShown: false }} /> */}
+          options={{ headerShown: false }} />
         <Stack.Screen
           name="Index"
           component={Index}

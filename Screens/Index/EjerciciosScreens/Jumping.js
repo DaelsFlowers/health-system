@@ -18,7 +18,7 @@ const Jumping = ({ navigation }) => {
                         piernas separadas a la anchura de los hombros,</Text>
 
                     <TouchableOpacity style={styles.button}
-                        onPress={() => navigation.navigate('JunpingAux')}>
+                        onPress={() => navigation.navigate('JumpingAux')}>
                         <Text style={styles.buttonTextStyle} >Empezar</Text>
                     </TouchableOpacity>
                 </View>

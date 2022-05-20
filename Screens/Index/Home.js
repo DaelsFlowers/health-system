@@ -1,7 +1,7 @@
 import StickyHeaderFooterScrollView from 'react-native-sticky-header-footer-scroll-view';
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
 import React, { BackHandler } from 'react-native';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { useNetInfo } from '@react-native-community/netinfo'
 
@@ -21,7 +21,32 @@ import cuerda from "./../../image/Exercise/cuerda.jpg"
 import pierna from "./../../image/Exercise/piernaArriba.jpg"
 import { render } from 'react-dom';
 
+import { DatabaseConnection } from '../database/database-connection';
+
+const db = DatabaseConnection.getConnection();
+
 const Home = ({ navigation }) => {
+
+
+    useEffect(() => {
+        db.transaction(function (txn) {
+            txn.executeSql(
+                "SELECT name FROM sqlite_master WHERE type='table' AND name='AllData'",
+                [],
+                function (tx, res) {
+                    console.log('item:', res.rows.length);
+                    if (res.rows.length == 0) {
+                        txn.executeSql('DROP TABLE IF EXISTS AllData', []);
+                        txn.executeSql(
+                            'CREATE TABLE IF NOT EXISTS AllData(id INTEGER PRIMARY KEY AUTOINCREMENT,  name VARCHAR(50), timer VARCHAR(50), date INT(20))',
+                            []
+                        );
+                    }
+                }
+            );
+        });
+    }, []);
+
     var count = 1
 
     const Countl = () => {
@@ -64,12 +89,12 @@ const Home = ({ navigation }) => {
                         onPress={() => navigation.navigate('Informacion')}>
                         <Image source={InfoIco} style={styles.iconos} />
                     </TouchableOpacity>
-                    {/* <TouchableOpacity
+                    <TouchableOpacity
                         onPress={() => navigation.navigate('Historial')}>
                         <Image source={HistoryIco} style={styles.iconos} />
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={BackHandler.exitApp}>
+                        onPress={() => navigation.navigate('Login')}>
                         <Image source={ExitIco} style={styles.iconos} />
                     </TouchableOpacity>
                 </View>
@@ -114,10 +139,10 @@ const Home = ({ navigation }) => {
                         onPress={() => navigation.navigate('Informacion')}>
                         <Image source={InfoIco} style={styles.iconos} />
                     </TouchableOpacity>
-                    {/* <TouchableOpacity
+                    <TouchableOpacity
                         onPress={() => navigation.navigate('Historial')}>
                         <Image source={HistoryIco} style={styles.iconos} />
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
                     <TouchableOpacity
                         onPress={BackHandler.exitApp}>
                         <Image source={ExitIco} style={styles.iconos} />

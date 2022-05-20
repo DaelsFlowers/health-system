@@ -1,13 +1,9 @@
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity, AsyncStorage, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import logo from "./../image/logo.png"
-import * as SQLite from "expo-sqlite";
 
 
 const Login = ({ navigation }) => {
-
-    const [mail, setMail] = useState("");
-    const [pass, setPass] = useState("");
 
     return (
         <ScrollView style={styles.container}>
@@ -20,18 +16,18 @@ const Login = ({ navigation }) => {
                 <View style={styles.formLogin}>
                     <TextInput
                         placeholder='CORREO'
+
                         style={styles.inputStyle} />
                     <TextInput
                         placeholder='CONTRASEÑA'
                         style={styles.inputStyle} />
-                    <TouchableOpacity style={styles.button}
-                        onPress={() => navigation.navigate('Index')}>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Index')}>
                         <Text style={styles.buttonTextStyle} >ENTRAR</Text>
                     </TouchableOpacity>
                 </View>
                 <Text
-                    style={styles.registerTextStyle}
-                    onPress={() => navigation.navigate('Register')}>
+                    style={styles.registerTextStyle} onPress={() => navigation.navigate('Register')}
+                >
                     No tienes cuenta? Registrate
                 </Text>
             </View>

@@ -1,69 +1,44 @@
-import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity, Alert } from 'react-native'
 import React, { useState } from 'react'
 import logo from "./../image/logo.png"
+import { DatabaseConnection } from './database/database-connection'
+const db = DatabaseConnection.getConnection()
 
-import { db } from '../data/firebase'
-import { doc, getDocs, setDoc, snapshotEqual, collection } from 'firebase/firestore'
 
 
 const Register = ({ navigation }) => {
 
+    let [userName, setUserName] = useState('');
+    let [userContact, setUserContact] = useState('');
+    let [userAddress, setUserAddress] = useState('');
 
-    const [userDoc, setUserDoc] = useState(null)
-    var existe = 0
+    let register_user = () => {
+        console.log(userName, userContact, userAddress);
 
-    const Create = (name, mail, pass) => {
-        const myDoc = doc(db, "Users", mail)
+        db.transaction(function (tx) {
+            tx.executeSql(
+                'INSERT INTO table_user (user_name, user_mail, user_password) VALUES (?,?,?)',
+                [userName, userContact, userAddress],
+                (tx, results) => {
+                    console.log('Results', results.rowsAffected);
+                    if (results.rowsAffected > 0) {
+                        Alert.alert(
+                            'Sucesso',
+                            'Usuário Registrado com Sucesso !!!',
+                            [
+                                {
+                                    text: 'Ok',
+                                    onPress: () => navigation.navigate('HomeScreen'),
+                                },
+                            ],
+                            { cancelable: false }
+                        );
+                    } else alert('Erro ao tentar Registrar o Usuário !!!');
+                }
+            );
+        });
+    };
 
-        const docData = {
-            "name": name,
-            "mail": mail,
-            "pass": pass,
-            "passc": pass
-        }
-        setDoc(myDoc, docData).then(() => {
-        }).catch((error) => {
-            alert(error.messange)
-        })
-    }
-
-    const [state, setState] = useState({
-        name: "",
-        mail: "",
-        pass: "",
-        passc: "",
-    });
-
-
-    const handleCahngeText = (name, value) => {
-        setState({ ...state, [name]: value })
-    }
-
-    const saveNewUser = () => {
-
-
-        if (state.name === "" || state.mail === "" || state.pass === "") {
-            alert("Favor de Llenar Los Campos")
-        } else {
-            if (state.pass !== state.passc) {
-                alert("Las Contraseñas No Coiciden")
-            } else {
-                const myDocs = doc(db, "Users", state.mail)
-                getDocs(myDocs).then((snapshot) => {
-
-                    if (snapshot.exists) {
-                        alert("Usuario Ya Registrdo")
-                    } else {
-                        Create(state.name, state.mail, state.pass)
-                        alert("Creado Con Exito")
-                        navigation.navigate('Index')
-                    }
-                }).catch((error) => {
-                    alert(error.messange)
-                })
-            }
-        }
-    }
     return (
         <ScrollView style={styles.container}>
             <View style={styles.content}>
@@ -76,20 +51,25 @@ const Register = ({ navigation }) => {
                     <TextInput
                         placeholder='NOMBRE'
                         style={styles.inputStyle}
-                        onChangeText={(value) => handleCahngeText("name", value)} />
+                        onChangeText={
+                            (userName) => setUserName(userName)
+                        } />
                     <TextInput
                         placeholder='CORREO'
                         style={styles.inputStyle}
-                        onChangeText={(value) => handleCahngeText("mail", value)} />
+                        onChangeText={
+                            (userContact) => setUserContact(userContact)
+                        } />
                     <TextInput
                         placeholder='CONTRASEÑA'
                         style={styles.inputStyle}
-                        onChangeText={(value) => handleCahngeText("pass", value)} />
+                        onChangeText={
+                            (userAddress) => setUserAddress(userAddress)
+                        } />
                     <TextInput
                         placeholder='CONTRASEÑA'
-                        style={styles.inputStyle}
-                        onChangeText={(value) => handleCahngeText("passc", value)} />
-                    <TouchableOpacity style={styles.button} onPress={saveNewUser} >
+                        style={styles.inputStyle} />
+                    <TouchableOpacity style={styles.button} onPress={register_user}>
                         <Text style={styles.buttonTextStyle} >ENTRAR</Text>
                     </TouchableOpacity>
                 </View>
@@ -103,6 +83,11 @@ const Register = ({ navigation }) => {
         </ScrollView>
     )
 }
+
+
+
+export default Register;
+
 
 
 const styles = StyleSheet.create({
@@ -165,5 +150,3 @@ const styles = StyleSheet.create({
     },
 
 });
-
-export default Register

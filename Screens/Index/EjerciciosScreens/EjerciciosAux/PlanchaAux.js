@@ -1,8 +1,46 @@
-import React, { useState } from "react";
-import { View, StyleSheet, Button, ScrollView, Text, TouchableOpacity } from "react-native";
+import React, { useRef, useState, useEffect } from "react";
+import { View, StyleSheet, Button, ScrollView, Text, TouchableOpacity, Alert } from "react-native";
+
 import { Video, AVPlaybackStatus } from "expo-av";
 
+
+import { DatabaseConnection } from "../../../database/database-connection";
+
+const db = DatabaseConnection.getConnection();
+
 export default function PlanchaAux() {
+    var dat = new Date().getDate();
+    var month = new Date().getMonth() + 1;
+    var year = new Date().getFullYear();
+    var full = dat + "-" + month + "-" + year
+
+    const register_user = () => {
+
+        var name = "PLANCHA"
+        var date = full
+        var timers = minutes + ":" + seconds
+
+
+        console.log(name, timers, date);
+
+
+        if (seconds <= 15) {
+            return;
+        }
+
+
+        db.transaction(function (tx) {
+            tx.executeSql(
+                'INSERT INTO AllData (name, timer, date ) VALUES (?,?,?)',
+                [name, timers, date],
+                (tx, results) => {
+                    console.log('Results', results.rowsAffected);
+                }, (tx, results) => {
+                    console.log(results);
+                }
+            );
+        });
+    };
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [customInterval, setCustomInterval] = useState();
@@ -67,6 +105,11 @@ export default function PlanchaAux() {
                         title={status.isPlaying ? "Pause" : "Play"}
                         onPress={(() => status.isPlaying ? video.current.pauseAsync() && stopTimer() : video.current.playAsync() && startTime())}
                     ></Button>
+                    <Text />
+                    <Button
+                        color={"#4F4646"}
+                        title={"GUARDAR"}
+                        onPress={register_user} />
                 </View>
             </View>
         </ScrollView>
