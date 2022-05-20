@@ -1,9 +1,29 @@
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity, AsyncStorage, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import logo from "./../image/logo.png"
+import Firebase from '../config/firebase';
+import ErrorMessage from '../components/ErrorMessage';
+const auth = Firebase.auth();
 
 
-const Login = ({ navigation }) => {
+
+const LoginScreen = ({ navigation }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [loginError, setLoginError] = useState('');
+
+
+    const onLogin = async () => {
+        try {
+            if (email !== '' && password !== '') {
+                await auth.signInWithEmailAndPassword(email, password);
+
+            }
+        } catch (error) {
+            setLoginError(error.message);
+        }
+    };
+
 
     return (
         <ScrollView style={styles.container}>
@@ -16,12 +36,16 @@ const Login = ({ navigation }) => {
                 <View style={styles.formLogin}>
                     <TextInput
                         placeholder='CORREO'
-
+                        value={email}
+                        onChangeText={text => setEmail(text)}
                         style={styles.inputStyle} />
                     <TextInput
                         placeholder='CONTRASEÑA'
+                        value={password}
+                        onChangeText={text => setPassword(text)}
                         style={styles.inputStyle} />
-                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Index')}>
+                    {loginError ? <ErrorMessage error={loginError} visible={true} /> : null}
+                    <TouchableOpacity style={styles.button} onPress={onLogin}>
                         <Text style={styles.buttonTextStyle} >ENTRAR</Text>
                     </TouchableOpacity>
                 </View>
@@ -97,4 +121,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Login
+export default LoginScreen

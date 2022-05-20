@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, FlatList, Button, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect } from 'react'
 
-import { DatabaseConnection } from '../database/database-connection'
+import { DatabaseConnection } from './database/database-connection'
 
 const db = DatabaseConnection.getConnection();
 

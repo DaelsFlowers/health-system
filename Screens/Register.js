@@ -1,43 +1,29 @@
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, TouchableOpacity, Alert } from 'react-native'
 import React, { useState } from 'react'
 import logo from "./../image/logo.png"
-import { DatabaseConnection } from './database/database-connection'
-const db = DatabaseConnection.getConnection()
+import Firebase from '../config/firebase';
+import ErrorMessage from '../components/ErrorMessage';
+const auth = Firebase.auth();
+
 
 
 
 const Register = ({ navigation }) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [signupError, setSignupError] = useState('');
 
-    let [userName, setUserName] = useState('');
-    let [userContact, setUserContact] = useState('');
-    let [userAddress, setUserAddress] = useState('');
 
-    let register_user = () => {
-        console.log(userName, userContact, userAddress);
-
-        db.transaction(function (tx) {
-            tx.executeSql(
-                'INSERT INTO table_user (user_name, user_mail, user_password) VALUES (?,?,?)',
-                [userName, userContact, userAddress],
-                (tx, results) => {
-                    console.log('Results', results.rowsAffected);
-                    if (results.rowsAffected > 0) {
-                        Alert.alert(
-                            'Sucesso',
-                            'Usuário Registrado com Sucesso !!!',
-                            [
-                                {
-                                    text: 'Ok',
-                                    onPress: () => navigation.navigate('HomeScreen'),
-                                },
-                            ],
-                            { cancelable: false }
-                        );
-                    } else alert('Erro ao tentar Registrar o Usuário !!!');
-                }
-            );
-        });
+    const onHandleSignup = async () => {
+        try {
+            if (email !== '' && password !== '') {
+                await auth.createUserWithEmailAndPassword(email, password);
+            }
+        } catch (error) {
+            setSignupError(error.message);
+        }
     };
+
 
     return (
         <ScrollView style={styles.container}>
@@ -49,27 +35,19 @@ const Register = ({ navigation }) => {
                 <Text style={styles.text}>REGISTRATE</Text>
                 <View style={styles.formLogin}>
                     <TextInput
-                        placeholder='NOMBRE'
-                        style={styles.inputStyle}
-                        onChangeText={
-                            (userName) => setUserName(userName)
-                        } />
-                    <TextInput
                         placeholder='CORREO'
                         style={styles.inputStyle}
-                        onChangeText={
-                            (userContact) => setUserContact(userContact)
-                        } />
+                        value={email}
+                        onChangeText={text => setEmail(text)}
+                    />
                     <TextInput
                         placeholder='CONTRASEÑA'
                         style={styles.inputStyle}
-                        onChangeText={
-                            (userAddress) => setUserAddress(userAddress)
-                        } />
-                    <TextInput
-                        placeholder='CONTRASEÑA'
-                        style={styles.inputStyle} />
-                    <TouchableOpacity style={styles.button} onPress={register_user}>
+                        value={password}
+                        onChangeText={text => setPassword(text)}
+                    />
+                    {signupError ? <ErrorMessage error={signupError} visible={true} /> : null}
+                    <TouchableOpacity style={styles.button} onPress={onHandleSignup} >
                         <Text style={styles.buttonTextStyle} >ENTRAR</Text>
                     </TouchableOpacity>
                 </View>

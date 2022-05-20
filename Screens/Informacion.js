@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, Touchable
 import React from 'react'
 
 //imagenes home de ejercicios
-import buttonImg from "./../../image/ico/buttonVideo.png"
+import buttonImg from "./../image/ico/buttonVideo.png"
 
 
 const Informacion = ({ navigation }) => {

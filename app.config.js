@@ -1,4 +1,6 @@
-{
+import 'dotenv/config';
+
+export default {
   "expo": {
     "name": "Health-System",
     "slug": "Health-System",
@@ -29,6 +31,13 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    extra: {
+      apiKey: process.env.API_KEY,
+      authDomain: process.env.AUTH_DOMAIN,
+      projectId: process.env.PROJECT_ID,
+      storageBucket: process.env.STORAGE_BUCKET,
+      messagingSenderId: process.env.MESSAGING_SENDER_ID,
+      appId: process.env.APP_ID
+    }
   }
-}
+};

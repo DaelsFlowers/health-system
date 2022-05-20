@@ -3,14 +3,14 @@ import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, Touchable
 import React from 'react'
 
 //imagenes home de ejercicios
-import cuerda from "./../../image/Exercise/cuerda.jpg"
-import domindas from "./../../image/Exercise/dominadas.jpg"
-import flexion from "./../../image/Exercise/flexion.jpg"
-import fullroll from "./../../image/Exercise/fullroll.jpg"
-import jumping from "./../../image/Exercise/jumping.jpg"
-import pierna from "./../../image/Exercise/piernaArriba.jpg"
-import plancha from "./../../image/Exercise/plancha.jpg"
-import sentadilla from "./../../image/Exercise/sentadilla.jpg"
+import cuerda from "./../image/Exercise/cuerda.jpg"
+import domindas from "./../image/Exercise/dominadas.jpg"
+import flexion from "./../image/Exercise/flexion.jpg"
+import fullroll from "./../image/Exercise/fullroll.jpg"
+import jumping from "./../image/Exercise/jumping.jpg"
+import pierna from "./../image/Exercise/piernaArriba.jpg"
+import plancha from "./../image/Exercise/plancha.jpg"
+import sentadilla from "./../image/Exercise/sentadilla.jpg"
 
 
 

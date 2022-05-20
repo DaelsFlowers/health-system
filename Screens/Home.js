@@ -1,31 +1,44 @@
-import StickyHeaderFooterScrollView from 'react-native-sticky-header-footer-scroll-view';
 import { View, Text, StyleSheet, ScrollView, Image, TextInput, Button, TouchableOpacity } from 'react-native'
 import React, { BackHandler } from 'react-native';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import { useNetInfo } from '@react-native-community/netinfo'
 
+import Firebase from '../config/firebase';
+import { AuthenticatedUserContext } from '../navigation/Authen';
+
+const auth = Firebase.auth();
 
 //iconos
-import HomeIco from "./../../image/ico/casa.png"
-import InfoIco from "./../../image/ico/corazon.png"
-import HistoryIco from "./../../image/ico/diagnostico.png"
-import ExerciseIco from "./../../image/ico/dumbell.png"
+import HomeIco from "./../image/ico/casa.png"
+import InfoIco from "./../image/ico/corazon.png"
+import HistoryIco from "./../image/ico/diagnostico.png"
+import ExerciseIco from "./../image/ico/dumbell.png"
 //import MoreIco from "./../../image/ico/mas-informacion.png"
-import ExitIco from "./../../image/ico/cerrar-sesion.png"
+import ExitIco from "./../image/ico/cerrar-sesion.png"
 
 
 
 //imagenes home de ejercicios
-import cuerda from "./../../image/Exercise/cuerda.jpg"
-import pierna from "./../../image/Exercise/piernaArriba.jpg"
-import { render } from 'react-dom';
+import cuerda from "./../image/Exercise/cuerda.jpg"
+import pierna from "./../image/Exercise/piernaArriba.jpg"
 
-import { DatabaseConnection } from '../database/database-connection';
+
+import { DatabaseConnection } from './database/database-connection';
 
 const db = DatabaseConnection.getConnection();
 
 const Home = ({ navigation }) => {
+
+    const { user } = useContext(AuthenticatedUserContext);
+    const handleSignOut = async () => {
+        try {
+            await auth.signOut();
+
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
 
     useEffect(() => {
@@ -93,10 +106,10 @@ const Home = ({ navigation }) => {
                         onPress={() => navigation.navigate('Historial')}>
                         <Image source={HistoryIco} style={styles.iconos} />
                     </TouchableOpacity>
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         onPress={() => navigation.navigate('Login')}>
                         <Image source={ExitIco} style={styles.iconos} />
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
             </View>
         )
@@ -144,7 +157,7 @@ const Home = ({ navigation }) => {
                         <Image source={HistoryIco} style={styles.iconos} />
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={BackHandler.exitApp}>
+                        onPress={handleSignOut}>
                         <Image source={ExitIco} style={styles.iconos} />
                     </TouchableOpacity>
                 </View>
